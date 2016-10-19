@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20161019155044) do
     t.string "name"
     t.string "address"
     t.float  "rating"
-    t.string "url"
   end
 
   create_table "customers", force: :cascade do |t|

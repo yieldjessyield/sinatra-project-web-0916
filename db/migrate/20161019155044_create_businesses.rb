@@ -4,7 +4,6 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string :name
       t.string :address
       t.float :rating
-      t.string :url
     end
   end
 end

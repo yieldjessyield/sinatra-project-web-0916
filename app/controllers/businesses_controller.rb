@@ -13,7 +13,6 @@ class BusinessesContoller < ApplicationController
   post '/businesses/found' do
     Business.destroy_all
     YelpApi.search(params[:location], params[:cusine])
-
     redirect to '/businesses'
   end
 

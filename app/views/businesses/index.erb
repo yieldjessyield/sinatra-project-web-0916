@@ -1,9 +1,12 @@
 <h1>Found Businesses</h1>
 
-<% @businesses.each do |business| %>
-  Name: <%= business.name %><br>
-   Location: <%= business.address %><br>
-    Rating: <%= business.rating %><br>
-     Url: <%= business.url %><br><br>
-
-  <% end %>
+  <form action='/restaurants/found' method='post'>
+    <% @businesses.each do |business| %>
+      Name: <%= business.name %><br>
+      Location: <%= business.address %><br>
+      Rating: <%= business.rating %><br>
+      <%business.yelp_id%>
+      <input type='checkbox' name='chosen[]' value='<%=business.yelp_id%>'>Add to Favorites<br><br>
+<%end%>
+  <input type='submit' value='Submit'>
+  </form>

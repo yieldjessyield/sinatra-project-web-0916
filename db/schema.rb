@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019155044) do
+ActiveRecord::Schema.define(version: 20161019195910) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.float  "rating"
-    t.string "url"
+    t.string "yelp_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20161019155044) do
     t.string  "name"
     t.integer "rating"
     t.string  "address"
+    t.string  "yelp_id"
   end
 
 end

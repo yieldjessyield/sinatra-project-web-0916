@@ -15,6 +15,18 @@ class RestaurantController < ApplicationController
     redirect to "/restaurants/#{@restaurant.id}"
   end
 
+  post '/restaurants/found' do
+    params[:chosen].each do |id|
+    # binding.pry
+      if Restaurant.exists?(yelp_id: id) == false
+        @business = Business.find_by(yelp_id: id)
+        Restaurant.create(name: @business.name, address: @business.address, rating: @business.rating, yelp_id: @business.yelp_id)
+      end
+    end
+
+    redirect to "/restaurants"
+  end
+
   get '/restaurants/:id' do
     @restaurant = Restaurant.find(params[:id])
     @customers = Customer.all

@@ -11,7 +11,7 @@ class YelpApi
   def self.search(location, cusine)
     businesses = self.client.search(location, {term: cusine, sort: 1}).businesses
     businesses.map do |business|
-      Business.create({name: business.name, address: business.location.display_address.join(', '), rating: business.rating, url: business.url})
+      Business.create({name: business.name, address: business.location.display_address.join(', '), rating: business.rating, yelp_id: business.id})
     end
     #array
       #yelp business objects
